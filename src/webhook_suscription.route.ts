@@ -1,10 +1,9 @@
-import { BaseRoute, logCatchedError, Method, Request, response, Response } from "@ant/framework";
+import { BaseRoute, EventEmitter, logCatchedError, Method, Request, response, Response } from "@ant/framework";
 import { WebhookEmitterFactory } from "./webhook_emitter.factory";
 import { WebhookRequest } from "./commons/webhook_request";
 
-
 export class WebhookSuscriptionRoute extends BaseRoute {
-    url = "api/webhook/register";
+    url = "/api/webhook/register";
 
     method: Method = "post";
 
@@ -13,14 +12,16 @@ export class WebhookSuscriptionRoute extends BaseRoute {
 
         const { subscribeTo, request} = params;
 
-        if (!subscribeTo || !request) {
+        if (!subscribeTo || !request.url) {
             return response({
                 status: "Invalid",
             }, 409);
         }
 
         try {
-            WebhookEmitterFactory.make(params);
+            const listener = WebhookEmitterFactory.make(params);
+
+            EventEmitter.listen(subscribeTo, listener);
 
             return response({
                 status: "Subscribed"
