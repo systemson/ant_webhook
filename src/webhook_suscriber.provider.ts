@@ -17,6 +17,7 @@ export abstract class BaseWebhookSubscriberProvider extends ServiceProvider {
                     name: subscription.subscribeTo,
                     url: senderUrl,
                 }));
+
                 Logger.trace(subscription);
 
                 const response = await axios.request({
@@ -29,8 +30,8 @@ export abstract class BaseWebhookSubscriberProvider extends ServiceProvider {
                     name: subscription.subscribeTo,
                     url: senderUrl,
                 }));
-                Logger.trace(response.data);
 
+                Logger.trace(response.data);
             } catch (error) {
                 Logger.error(Lang.__("Error subscribing to webhook [{{name}}] on [{{url}}].", {
                     name: subscription.subscribeTo,

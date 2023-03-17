@@ -19,7 +19,7 @@ export class WebhookListener extends BaseListener {
                 if (message.retries <= 3) {
                     message.retries++;
 
-                    EventEmitter.emit(this.eventName, message);
+                    EventEmitter.emit("webhook", message);
                 } else {
                     Logger.warn("Max webhook retries.");
                 }

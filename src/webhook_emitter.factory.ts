@@ -4,7 +4,7 @@ import { WebhookRequest } from "./commons/webhook_request";
 
 export class WebhookEmitterFactory {
     public static make(data: WebhookRequest): ListenerContract {
-        return new class extends BaseListener {
+        return new class FactoryWebhookListener extends BaseListener {
             eventName = data.subscribeTo;
 
             handler(...args: any[]) {
