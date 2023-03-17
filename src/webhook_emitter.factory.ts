@@ -16,7 +16,7 @@ export class WebhookEmitterFactory {
                     body: args
                 };
 
-                EventEmitter.emit(data.subscribeTo, message);
+                EventEmitter.emit('webhook', message);
             }
         };
     }
