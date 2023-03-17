@@ -1,0 +1,1 @@
+{"version":3,"file":"webhook_emitter.factory.d.ts","sourceRoot":"","sources":["../../src/webhook_emitter.factory.ts"],"names":[],"mappings":"AAAA,OAAO,EAA8B,gBAAgB,EAAE,MAAM,gBAAgB,CAAC;AAE9E,OAAO,EAAE,cAAc,EAAE,MAAM,2BAA2B,CAAC;AAE3D,qBAAa,qBAAqB;WAChB,IAAI,CAAC,IAAI,EAAE,cAAc,GAAG,gBAAgB;CAiB7D"}
